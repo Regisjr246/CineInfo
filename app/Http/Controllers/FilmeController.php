@@ -32,14 +32,17 @@ class FilmeController extends Controller
     }
 
     // pesquisar de filme
+
     public function pesquisa(Request $request)
     {
+     
         $query = Filme::query();
         $query->where(function ($q) use ($request) {
             $q->where('sinopse', 'like', '%' . $request->input('pesquisa') . '%')
                 ->orWhere('genero', 'like', '%' . $request->input('pesquisa') . '%');
         })
             ->where('titulo', 'like', '%' . $request->input('pesquisa') . '%');
+
         $filmes = $query->get();
         if (count($filmes) > 0) {
             return response()->json([
