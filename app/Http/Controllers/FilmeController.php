@@ -31,23 +31,45 @@ class FilmeController extends Controller
         ], 200);
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // pesquisar de filme
 
     public function pesquisa(Request $request)
     {
      
         $query = Filme::query();
+       
         $query->where(function ($q) use ($request) {
             $q->where('sinopse', 'like', '%' . $request->input('pesquisa') . '%')
-                ->orWhere('genero', 'like', '%' . $request->input('pesquisa') . '%');
-        })
-            ->where('titulo', 'like', '%' . $request->input('pesquisa') . '%');
+                ->orWhere('genero', 'like', '%' .$request->input('pesquisa') . '%')
+                ->orWhere('diretor', 'like', '%' .$request->input('pesquisa') . '%')     
+                ->orWhere('classificacao', 'like', '%' .$request->input('pesquisa') . '%')    
+                ->orWhere('plataformas', 'like', '%' .$request->input('pesquisa') . '%')   
+                ->orWhere('elenco', 'like', '%' .$request->input('pesquisa') . '%')   
+                ->orWhere('titulo', 'like', '%' .$request->input('pesquisa') . '%');     
+        });
 
-        $filmes = $query->get();
-        if (count($filmes) > 0) {
+        $filme = $query->get();
+        if (count($filme) > 0) {
             return response()->json([
                 'status' => true,
-                'data' => $filmes
+                'data' => $filme
             ]);
         }
         return response()->json([
