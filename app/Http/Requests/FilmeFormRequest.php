@@ -36,14 +36,7 @@ class FilmeFormRequest extends FormRequest
         ];
     }
 
-    public function failedValidation(Validator $validator)
-    {
-        
-        throw new HttpResponseException(response()->json([
-            'success' => false,
-            'error' => $validator->errors()
-        ]));
-    }
+
 
     public function messages()
     {
@@ -62,7 +55,7 @@ class FilmeFormRequest extends FormRequest
             'genero.min' => 'O campo Gênero deve ter no mínimo 3 caractéris',
 
             'dt_lancamento.required' => 'Data de Lançamento do Stream obrigátorio',
-            'dt_lancamento.date' => 'Data de Lançamento do Stream está em formato incorreto',
+            'dt_lancamento.date' => 'Formato incorreto. Insira: ano-mes-dia',
 
             'sinopse.required' => 'Sinopse do Stream obrigátorio',
             'sinopse.max' => 'O campo Sinopse deve ter no máximo 10.000 caractéris',
