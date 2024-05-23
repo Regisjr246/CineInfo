@@ -30,7 +30,7 @@ class animacaoController extends Controller
     }
 
     // Retornar todos
-    public function retornarTodos(){
+    public function retornarTodosAnimacao(){
         $animacao = animacao::all();
         return response()->json([
             'status' => true,
@@ -39,7 +39,7 @@ class animacaoController extends Controller
     }
 
     //Pesquisar por título/genero/diretor/sinopse/classificacao/plataformas
-    public function pesquisa(Request $request)
+    public function pesquisaAnimacao(Request $request)
     {
      
         $query = animacao::query();

@@ -24,7 +24,7 @@ class AnimacaoFormRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'titulo' => 'required|max:100|min:2|unique:series,titulo',
+            'titulo' => 'required|max:100|min:2|unique:animacaos,titulo',
             'diretor'=>'required|max:100|min:3',
             'studio'=>'required|max:100|min:3',
             'genero' => 'required|max:100|min:3',
@@ -49,7 +49,7 @@ class AnimacaoFormRequest extends FormRequest
             'titulo.required' => 'Titulo do Stream é obrigátorio',
             'titulo.max' => 'O campo Título deve ter no máximo 100 caractéris',
             'titulo.min' => 'O campo Título deve ter no mínimo 2 caractéris',
-            'titulo.unique' => 'Titulo já esxiste no sistema',
+            'titulo.unique' => 'Titulo já existe no sistema',
 
             
             'diretor.required' => 'diretor do Stream obrigátorio',

@@ -1,13 +1,10 @@
 <?php
 
+use App\Http\Controllers\animacaoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FilmeController;
-
-
-
-
-
+use App\Http\Controllers\serieController;
 
 // -------------------------Teste:-------------------------------------------
 route::post('filmes/cadastro', [FilmeController::class, 'cadastroFilme']);
@@ -22,25 +19,25 @@ route::put('filmes/update', [filmeController::class, 'updatefilmes']);
 // ----------------ADM--------------------------------------------------------
 //FILMES:
 route::post('adm/filmes/cadastro', [FilmeController::class, 'cadastroFilme']);
-route::get('adm/filmes/listagem', [filmeController::class, 'retornarTodos']);
-route::get('adm/filmes/pesquisar', [filmeController::class, 'pesquisa']);
+route::get('adm/filmes/listagem', [filmeController::class, 'retornarTodosFilmes']);
+route::get('adm/filmes/pesquisar', [filmeController::class, 'pesquisaFilme']);
 route::delete('adm/filmes/delete/{id}', [filmeController::class, 'deletarFilme']);
 route::put('adm/filmes/update', [filmeController::class, 'updatefilmes']);
 
 //SERIE:
-route::post('adm/serie/cadastro', [FilmeController::class, 'cadastroSeries']);
-route::get('adm/serie/listagem', [filmeController::class, 'retornarTodosSeries']);
-route::get('adm/serie/pesquisar', [filmeController::class, 'pesquisaSerie']);
-route::delete('adm/serie/delete/{id}', [filmeController::class, 'deletarSerie']);
-route::put('adm/serie/update', [filmeController::class, 'updateSerie']);
+route::post('adm/serie/cadastro', [serieController::class, 'cadastroSeries']);
+route::get('adm/serie/listagem', [serieController::class, 'retornarTodosSeries']);
+route::get('adm/serie/pesquisar', [serieController::class, 'pesquisaSerie']);
+route::delete('adm/serie/delete/{id}', [serieController::class, 'deletarSerie']);
+route::put('adm/serie/update', [serieController::class, 'updateSerie']);
 
 
 //ANIMCAO:
-route::post('adm/animacao/cadastro', [FilmeController::class, 'cadastroAnimacao']);
-route::get('adm/animacao/listagem', [filmeController::class, 'retornarTodosAnimaca']);
-route::get('adm/animacao/pesquisar', [filmeController::class, 'pesquisa']);
-route::delete('adm/animacao/delete/{id}', [filmeController::class, 'deletarAnimacao']);
-route::put('adm/animacao/update', [filmeController::class, 'updateanimacao']);
+route::post('adm/animacao/cadastro', [animacaoController::class, 'cadastroAnimacao']);
+route::get('adm/animacao/listagem', [animacaoController::class, 'retornarTodosAnimacao']);
+route::get('adm/animacao/pesquisar', [animacaoController::class, 'pesquisaAnimacao']);
+route::delete('adm/animacao/delete/{id}', [animacaoController::class, 'deletarAnimacao']);
+route::put('adm/animacao/update', [animacaoController::class, 'updateanimacao']);
 
 
 
