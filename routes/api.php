@@ -20,7 +20,7 @@ route::put('filmes/update', [filmeController::class, 'updatefilmes']);
 //FILMES:
 route::post('adm/filmes/cadastro', [FilmeController::class, 'cadastroFilme']);
 route::get('adm/filmes/listagem', [filmeController::class, 'retornarTodosFilmes']);
-route::get('adm/filmes/pesquisar', [filmeController::class, 'pesquisaFilme']);
+route::get('adm/filmes/pesquisar/{pesquisa}', [filmeController::class, 'pesquisaFilme']);
 route::delete('adm/filmes/delete/{id}', [filmeController::class, 'deletarFilme']);
 route::put('adm/filmes/update', [filmeController::class, 'updatefilmes']);
 

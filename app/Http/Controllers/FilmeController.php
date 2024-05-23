@@ -46,19 +46,19 @@ class FilmeController extends Controller
 
     // pesquisar de filme
 
-    public function pesquisaFilme(Request $request)
+    public function pesquisaFilme($pesquisa)
     {
      
         $query = Filme::query();
        
-        $query->where(function ($q) use ($request) {
-            $q->where('sinopse', 'like', '%' . $request->input('pesquisa') . '%')
-                ->orWhere('genero', 'like', '%' .$request->input('pesquisa') . '%')
-                ->orWhere('diretor', 'like', '%' .$request->input('pesquisa') . '%')     
-                ->orWhere('classificacao', 'like', '%' .$request->input('pesquisa') . '%')    
-                ->orWhere('plataformas', 'like', '%' .$request->input('pesquisa') . '%')   
-                ->orWhere('elenco', 'like', '%' .$request->input('pesquisa') . '%')   
-                ->orWhere('titulo', 'like', '%' .$request->input('pesquisa') . '%');     
+        $query->where(function ($q) use ($pesquisa) {
+            $q->where('sinopse', 'like', '%' . $pesquisa . '%')
+                ->orWhere('genero', 'like', '%' .$pesquisa . '%')
+                ->orWhere('diretor', 'like', '%' .$pesquisa . '%')     
+                ->orWhere('classificacao', 'like', '%' .$pesquisa . '%')    
+                ->orWhere('plataformas', 'like', '%' .$pesquisa . '%')   
+                ->orWhere('elenco', 'like', '%' .$pesquisa . '%')   
+                ->orWhere('titulo', 'like', '%' .$pesquisa . '%');     
         });
 
         $filme = $query->get();
