@@ -44,13 +44,9 @@ class FilmeController extends Controller
 
 
 
-
-
-
-
     // pesquisar de filme
 
-    public function pesquisa(Request $request)
+    public function pesquisaFilme(Request $request)
     {
      
         $query = Filme::query();
@@ -96,7 +92,7 @@ class FilmeController extends Controller
     }
 
     //Listagem
-    public function retornarTodos()
+    public function retornarTodosFilmes()
     {
         $filmes =  Filme::all();
         if (!isset($filmes)) {
