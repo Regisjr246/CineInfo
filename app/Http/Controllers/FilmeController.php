@@ -31,34 +31,21 @@ class FilmeController extends Controller
         ], 200);
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     // pesquisar de filme
 
     public function pesquisaFilme($pesquisa)
     {
-     
+
         $query = Filme::query();
-       
+
         $query->where(function ($q) use ($pesquisa) {
             $q->where('sinopse', 'like', '%' . $pesquisa . '%')
-                ->orWhere('genero', 'like', '%' .$pesquisa . '%')
-                ->orWhere('diretor', 'like', '%' .$pesquisa . '%')     
-                ->orWhere('classificacao', 'like', '%' .$pesquisa . '%')    
-                ->orWhere('plataformas', 'like', '%' .$pesquisa . '%')   
-                ->orWhere('elenco', 'like', '%' .$pesquisa . '%')   
-                ->orWhere('titulo', 'like', '%' .$pesquisa . '%');     
+                ->orWhere('genero', 'like', '%' . $pesquisa . '%')
+                ->orWhere('diretor', 'like', '%' . $pesquisa . '%')
+                ->orWhere('classificacao', 'like', '%' . $pesquisa . '%')
+                ->orWhere('plataformas', 'like', '%' . $pesquisa . '%')
+                ->orWhere('elenco', 'like', '%' . $pesquisa . '%')
+                ->orWhere('titulo', 'like', '%' . $pesquisa . '%');
         });
 
         $filme = $query->get();
